@@ -32,6 +32,9 @@ commit.author.login + '</strong> - ' + commit.commit.message +
   document.getElementById("commits").innerHTML = commitsList
 }
 
+function getBranches() {
+  
+}
 function displayBranches() {
 
 }
