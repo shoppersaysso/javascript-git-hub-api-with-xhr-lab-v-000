@@ -27,13 +27,13 @@ function displayRepositories(event, data) {
 
 function getCommits(el) {
   const repoName = el.dataset.repository
-    const uri = rootURL + "/repos/" + el.dataset.username + "/" + repoName + "/commits"
-    const xhr = new XMLHttpRequest()
-    xhr.addEventListener("load", displayCommits)
-    xhr.open("GET", uri)
-    xhr.send()
-  }
-  
+  const uri = rootURL + "/repos/" + el.dataset.username + "/" + repoName + "/commits"
+  const xhr = new XMLHttpRequest()
+  xhr.addEventListener("load", displayCommits)
+  xhr.open("GET", uri)
+  xhr.send()
+}
+
 function displayCommits() {
   const commits = JSON.parse(this.responseText)
   const commitsList = `<ul>${commits.map(commit => '<li><strong>' +
