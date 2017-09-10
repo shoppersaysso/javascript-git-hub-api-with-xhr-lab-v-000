@@ -1,13 +1,13 @@
 function getRepositories() {
   const req = new XMLHttpRequest()
   var username = document.getElementById('username')
-  req.addEventListener("load", showRepositories);
+  req.addEventListener("load", displayRepositories);
   req.open("GET",
   'https://api.github.com/users/' + username + '/repos')
   req.send()
 }
 
-function showRepositories(event, data) {
+function displayRepositories(event, data) {
   var repos = JSON.parse(this.responseText)
   console.log(repos)
   const repoList = `<ul>${repos.map(r => '<li>' + r.name + ' - <a href="#" data-repo="'+ r.name +
@@ -33,5 +33,5 @@ commit.author.login + '</strong> - ' + commit.commit.message +
 }
 
 function displayBranches() {
-  
+
 }
