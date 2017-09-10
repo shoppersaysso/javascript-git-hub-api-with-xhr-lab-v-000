@@ -31,3 +31,7 @@ commit.author.login + '</strong> - ' + commit.commit.message +
 '</li>').join('')}</ul>`
   document.getElementById("commits").innerHTML = commitsList
 }
+
+function displayBranches() {
+  
+}
