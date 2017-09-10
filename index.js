@@ -32,16 +32,16 @@ commit.author.login + '</strong> - ' + commit.commit.message +
   document.getElementById("commits").innerHTML = commitsList
 }
 
-function getBranches() {
-  var branch = document.getElementById('branch')
-  const req = new XMLHttpRequest()
-  req.addEventListener("load", displayRepositories);
-  req.open("GET",
-  'https://api.github.com/users/' + username + '/repos')
-  req.send()
-
+function getBranches(el) {
+  const repoName = el.dataset.repository
+  const uri = rootURL + "/repos/" + el.dataset.username + "/" + repoName + "/branches"
+  const xhr = new XMLHttpRequest()
+  xhr.addEventListener("load", displayBranches)
+  xhr.open("GET", uri)
+  xhr.send()
 }
-
 function displayBranches() {
-
+  const branches = JSON.parse(this.responseText)
+  const branchesList = `<ul>${branches.map(branch => '<li>' + branch.name + '</li>').join('')}</ul>`
+  document.getElementById("details").innerHTML = branchesList
 }
