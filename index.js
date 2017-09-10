@@ -33,8 +33,18 @@ commit.author.login + '</strong> - ' + commit.commit.message +
 }
 
 function getBranches() {
-  
+  var branch = document.getElementById('branch')
+  const req = new XMLHttpRequest()
 }
+
+
+var username = document.getElementById('username')
+req.addEventListener("load", displayRepositories);
+req.open("GET",
+'https://api.github.com/users/' + username + '/repos')
+req.send()
+}
+
 function displayBranches() {
 
 }
